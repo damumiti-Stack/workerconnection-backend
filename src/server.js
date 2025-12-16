@@ -43,7 +43,7 @@ const corsOptions = {
     }
 
     const allowedOrigins = [
-      'https://dulcet-cobbler-4df9df.netlify.app',
+      'https://workerconnection-frontend.pages.dev',
       FRONTEND_URL,
       CLIENT_URL,
       'http://localhost:5173',
@@ -517,6 +517,7 @@ const startServer = async () => {
       console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
       console.log(`🔗 Supabase URL: ${process.env.SUPABASE_URL || 'Not configured'}`);
       console.log(`🎯 Frontend URL: ${FRONTEND_URL}`);
+      console.log(`🌐 Client URL (Web): ${CLIENT_URL || 'Not configured'}`);
       console.log('');
       console.log('📋 Available endpoints:');
       console.log('   GET  /');

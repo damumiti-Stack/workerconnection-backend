@@ -27,7 +27,7 @@ A comprehensive REST API for the WorkerConnect Labour Management System with SAM
 
 ## Base URL
 - **Local Development**: http://localhost:3001
-- **Production (Render)**: https://workerconnectbackend.onrender.com
+- **Production (Render)**: https://workerconnection-backend.onrender.com
 
 ## Authentication
 The API supports two authentication methods:
@@ -59,7 +59,7 @@ All API responses follow a standard format:
         description: 'Local Development Server'
       },
       {
-        url: 'https://workerconnectbackend.onrender.com',
+        url: 'https://workerconnection-backend.onrender.com',
         description: 'Production Server (Render)'
       }
     ],

@@ -27,17 +27,17 @@ export const samlConfig = {
   // Entity ID - Unique identifier for this Service Provider
   // This must match what you configure in STA
   // Format: Usually a URL like https://yourdomain.com/saml/metadata
-  entityId: process.env.SAML_ENTITY_ID || 'https://workerconnectbackend.onrender.com/saml/metadata',
+  entityId: process.env.SAML_ENTITY_ID || 'https://workerconnection-backend.onrender.com/saml/metadata',
 
   // Assertion Consumer Service (ACS) URL
   // This is where STA will send the SAML response after authentication
   // Must match the route: /saml/acs
-  callbackUrl: process.env.SAML_ACS_URL || 'https://workerconnectbackend.onrender.com/saml/acs',
+  callbackUrl: process.env.SAML_ACS_URL || 'https://workerconnection-backend.onrender.com/saml/acs',
 
   // Single Logout Service (SLO) URL
   // This is where STA will send logout requests
   // Must match the route: /saml/logout
-  logoutUrl: process.env.SAML_LOGOUT_URL || 'https://workerconnectbackend.onrender.com/saml/logout',
+  logoutUrl: process.env.SAML_LOGOUT_URL || 'https://workerconnection-backend.onrender.com/saml/logout',
 
   // ============================================
   // IDENTITY PROVIDER (IDP) CONFIGURATION

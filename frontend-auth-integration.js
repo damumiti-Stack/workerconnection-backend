@@ -9,7 +9,7 @@
 // API Configuration
 // ===========================================================================
 
-const API_BASE_URL = 'https://workerconnectbackend.onrender.com';
+const API_BASE_URL = 'https://workerconnection-backend.onrender.com';
 
 // ===========================================================================
 // Method 1: Using Fetch (Vanilla JS or React)
@@ -133,7 +133,7 @@ function Dashboard() {
 
   if (!authenticated) {
     // Redirect to SAML login
-    window.location.href = 'https://workerconnectbackend.onrender.com/saml/login/worker';
+    window.location.href = 'https://workerconnection-backend.onrender.com/saml/login/worker';
     return null;
   }
 
@@ -145,7 +145,7 @@ async function initApp() {
   const auth = await checkAuth();
 
   if (!auth.authenticated) {
-    window.location.href = 'https://workerconnectbackend.onrender.com/saml/login/worker';
+    window.location.href = 'https://workerconnection-backend.onrender.com/saml/login/worker';
     return;
   }
 
@@ -167,10 +167,10 @@ async function getTodayAttendance() {
 function LoginButtons() {
   return (
     <div>
-      <button onClick={() => window.location.href = 'https://workerconnectbackend.onrender.com/saml/login/worker'}>
+      <button onClick={() => window.location.href = 'https://workerconnection-backend.onrender.com/saml/login/worker'}>
         Login as Worker
       </button>
-      <button onClick={() => window.location.href = 'https://workerconnectbackend.onrender.com/saml/login/establishment'}>
+      <button onClick={() => window.location.href = 'https://workerconnection-backend.onrender.com/saml/login/establishment'}>
         Login as Establishment
       </button>
     </div>

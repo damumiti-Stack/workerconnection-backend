@@ -43,7 +43,7 @@ const corsOptions = {
     }
 
     const allowedOrigins = [
-      'https://dulcet-cobbler-4df9df.netlify.app',
+      'https://workerconnection-frontend.pages.dev',
       FRONTEND_URL,
       CLIENT_URL,
       'http://localhost:5173',

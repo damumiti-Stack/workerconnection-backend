@@ -35,9 +35,9 @@ cp env.example.txt .env
 
 ```env
 SESSION_SECRET=your-random-secret-here
-SAML_ENTITY_ID=https://workerconnectbackend.onrender.com/saml/metadata
-SAML_ACS_URL=https://workerconnectbackend.onrender.com/saml/acs
-SAML_LOGOUT_URL=https://workerconnectbackend.onrender.com/saml/logout
+SAML_ENTITY_ID=https://workerconnection-backend.onrender.com/saml/metadata
+SAML_ACS_URL=https://workerconnection-backend.onrender.com/saml/acs
+SAML_LOGOUT_URL=https://workerconnection-backend.onrender.com/saml/logout
 SAML_ENTRY_POINT=https://your-tenant.safenetidp.com/saml/sso
 SAML_ISSUER=https://your-tenant.safenetidp.com
 SAML_IDP_CERT=-----BEGIN CERTIFICATE-----
@@ -49,7 +49,7 @@ SAML_IDP_CERT=-----BEGIN CERTIFICATE-----
 
 **For Render deployment:**
 ```bash
-# Visit: https://workerconnectbackend.onrender.com/metadata
+# Visit: https://workerconnection-backend.onrender.com/metadata
 # Save the XML to sp-metadata.xml
 ```
 
@@ -66,9 +66,9 @@ npm start
 2. **Applications** → **Add Application** → **SAML 2.0**
 3. **Upload Metadata** → Upload `sp-metadata.xml`
 4. Configure:
-   - **Entity ID**: `https://workerconnectbackend.onrender.com/saml/metadata`
-   - **ACS URL**: `https://workerconnectbackend.onrender.com/saml/acs`
-   - **Logout URL**: `https://workerconnectbackend.onrender.com/saml/logout`
+   - **Entity ID**: `https://workerconnection-backend.onrender.com/saml/metadata`
+   - **ACS URL**: `https://workerconnection-backend.onrender.com/saml/acs`
+   - **Logout URL**: `https://workerconnection-backend.onrender.com/saml/logout`
    - **NameID Format**: `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
 5. **Attribute Mapping**:
    - Map `employeeNumber` attribute to Card ID
@@ -83,15 +83,15 @@ npm start
 **For Render deployment:**
 ```bash
 # Test login
-curl https://workerconnectbackend.onrender.com/saml/login
+curl https://workerconnection-backend.onrender.com/saml/login
 
 # Test card scan
-curl -X POST https://workerconnectbackend.onrender.com/card-scan \
+curl -X POST https://workerconnection-backend.onrender.com/card-scan \
   -H "Content-Type: application/json" \
   -d '{"cardId": "12345"}'
 
 # Check status
-curl https://workerconnectbackend.onrender.com/saml/status
+curl https://workerconnection-backend.onrender.com/saml/status
 ```
 
 **For local development:**
@@ -143,9 +143,9 @@ POST /card-scan
 
 **Required (for Render deployment):**
 - `SESSION_SECRET` - Session encryption secret
-- `SAML_ENTITY_ID` - SP Entity ID: `https://workerconnectbackend.onrender.com/saml/metadata`
-- `SAML_ACS_URL` - ACS callback URL: `https://workerconnectbackend.onrender.com/saml/acs`
-- `SAML_LOGOUT_URL` - Logout URL: `https://workerconnectbackend.onrender.com/saml/logout`
+- `SAML_ENTITY_ID` - SP Entity ID: `https://workerconnection-backend.onrender.com/saml/metadata`
+- `SAML_ACS_URL` - ACS callback URL: `https://workerconnection-backend.onrender.com/saml/acs`
+- `SAML_LOGOUT_URL` - Logout URL: `https://workerconnection-backend.onrender.com/saml/logout`
 - `SAML_ENTRY_POINT` - STA SSO URL
 - `SAML_ISSUER` - STA Entity ID
 - `SAML_IDP_CERT` - STA certificate

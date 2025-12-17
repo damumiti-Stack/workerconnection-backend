@@ -90,7 +90,7 @@ res.redirect(`${frontendUrl}/dashboard/worker`);
 const deviceInfo = getDeviceInfo(req);
 const redirectUrl = getRedirectUrl(req, '/dashboard/worker');
 // Mobile app → workerconnect://dashboard/worker
-// Web browser → https://dulcet-cobbler-4df9df.netlify.app/dashboard/worker
+// Web browser → https://workerconnection-frontend.pages.dev/dashboard/worker
 res.redirect(redirectUrl);
 ```
 
@@ -100,7 +100,7 @@ Add to `.env`:
 
 ```bash
 # Web browser frontend
-CLIENT_URL=https://dulcet-cobbler-4df9df.netlify.app
+CLIENT_URL=https://workerconnection-frontend.pages.dev
 
 # Mobile app deep link
 MOBILE_APP_URL=workerconnect://
@@ -115,7 +115,7 @@ MOBILE_APP_URL=workerconnect://
 ```javascript
 // React Native - Axios
 const api = axios.create({
-  baseURL: 'https://workerconnectbackend.onrender.com',
+  baseURL: 'https://workerconnection-backend.onrender.com',
   headers: {
     'X-App-Platform': 'mobile',
     'X-Client-Type': 'mobile-app',
@@ -157,25 +157,25 @@ curl -X OPTIONS \
   -H "Access-Control-Request-Method: GET" \
   -H "Access-Control-Request-Headers: X-App-Platform, Content-Type" \
   -v \
-  https://workerconnectbackend.onrender.com/api/auth/user
+  https://workerconnection-backend.onrender.com/api/auth/user
 
 # Test GET request
 curl -X GET \
   -H "Origin: http://localhost" \
   -H "X-App-Platform: mobile" \
-  https://workerconnectbackend.onrender.com/api/auth/user
+  https://workerconnection-backend.onrender.com/api/auth/user
 ```
 
 ### Test Device Detection
 
 ```bash
 # Web browser detection
-curl -L https://workerconnectbackend.onrender.com/saml/login/worker
-# Should redirect to: https://dulcet-cobbler-4df9df.netlify.app/dashboard/worker
+curl -L https://workerconnection-backend.onrender.com/saml/login/worker
+# Should redirect to: https://workerconnection-frontend.pages.dev/dashboard/worker
 
 # Mobile app detection
 curl -L -H "X-App-Platform: mobile" \
-  https://workerconnectbackend.onrender.com/saml/login/worker
+  https://workerconnection-backend.onrender.com/saml/login/worker
 # Should redirect to: workerconnect://dashboard/worker
 ```
 

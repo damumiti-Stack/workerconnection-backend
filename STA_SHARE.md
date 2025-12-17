@@ -2,7 +2,7 @@
 
 **Application Name:** WorkerConnect Backend  
 **Application Type:** SAML 2.0 Service Provider  
-**Deployment URL:** https://workerconnectbackend.onrender.com
+**Deployment URL:** https://workerconnection-backend.onrender.com
 
 ---
 
@@ -10,7 +10,7 @@
 
 **Metadata URL:**
 ```
-https://workerconnectbackend.onrender.com/metadata
+https://workerconnection-backend.onrender.com/metadata
 ```
 
 **Instructions:**
@@ -30,9 +30,9 @@ If automatic configuration is not available, use these settings:
 
 | Setting | Value |
 |---------|-------|
-| **Entity ID** | `https://workerconnectbackend.onrender.com/saml/metadata` |
-| **Assertion Consumer Service (ACS) URL** | `https://workerconnectbackend.onrender.com/saml/acs` |
-| **Single Logout Service (SLO) URL** | `https://workerconnectbackend.onrender.com/saml/logout` |
+| **Entity ID** | `https://workerconnection-backend.onrender.com/saml/metadata` |
+| **Assertion Consumer Service (ACS) URL** | `https://workerconnection-backend.onrender.com/saml/acs` |
+| **Single Logout Service (SLO) URL** | `https://workerconnection-backend.onrender.com/saml/logout` |
 | **NameID Format** | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` |
 | **Signature Algorithm** | `SHA-256` |
 | **Digest Algorithm** | `SHA-256` |
@@ -41,19 +41,19 @@ If automatic configuration is not available, use these settings:
 
 **Entity ID / Issuer:**
 ```
-https://workerconnectbackend.onrender.com/saml/metadata
+https://workerconnection-backend.onrender.com/saml/metadata
 ```
 
 **Assertion Consumer Service (ACS) URL:**
 ```
-https://workerconnectbackend.onrender.com/saml/acs
+https://workerconnection-backend.onrender.com/saml/acs
 ```
 - **Binding:** HTTP POST
 - **Index:** 0 (or default)
 
 **Single Logout Service (SLO) URL:**
 ```
-https://workerconnectbackend.onrender.com/saml/logout
+https://workerconnection-backend.onrender.com/saml/logout
 ```
 - **Binding:** HTTP POST or HTTP Redirect
 
@@ -134,17 +134,17 @@ After configuration, we can test:
 
 1. **Metadata Endpoint:**
    ```
-   https://workerconnectbackend.onrender.com/metadata
+   https://workerconnection-backend.onrender.com/metadata
    ```
 
 2. **SAML Login:**
    ```
-   https://workerconnectbackend.onrender.com/saml/login
+   https://workerconnection-backend.onrender.com/saml/login
    ```
 
 3. **Status Check:**
    ```
-   https://workerconnectbackend.onrender.com/saml/status
+   https://workerconnection-backend.onrender.com/saml/status
    ```
 
 ---
@@ -152,11 +152,11 @@ After configuration, we can test:
 ## Summary for Quick Reference
 
 ```
-METADATA URL: https://workerconnectbackend.onrender.com/metadata
+METADATA URL: https://workerconnection-backend.onrender.com/metadata
 
-ENTITY ID: https://workerconnectbackend.onrender.com/saml/metadata
-ACS URL: https://workerconnectbackend.onrender.com/saml/acs
-LOGOUT URL: https://workerconnectbackend.onrender.com/saml/logout
+ENTITY ID: https://workerconnection-backend.onrender.com/saml/metadata
+ACS URL: https://workerconnection-backend.onrender.com/saml/acs
+LOGOUT URL: https://workerconnection-backend.onrender.com/saml/logout
 NAMEID FORMAT: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
 
 REQUIRED ATTRIBUTE: employeeNumber (must match card ID)
@@ -168,5 +168,5 @@ REQUIRED ATTRIBUTE: employeeNumber (must match card ID)
 
 If you have questions about this configuration, please refer to:
 - Complete setup guide: See project documentation
-- Metadata XML: https://workerconnectbackend.onrender.com/metadata
+- Metadata XML: https://workerconnection-backend.onrender.com/metadata
 

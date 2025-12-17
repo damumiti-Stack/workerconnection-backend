@@ -230,9 +230,9 @@ npm run build
 ### 2. Test SAML Flow
 
 1. Clear browser cookies and localStorage
-2. Navigate to: `https://workerconnectbackend.onrender.com/saml/login/worker`
+2. Navigate to: `https://workerconnection-backend.onrender.com/saml/login/worker`
 3. Complete SAML authentication
-4. Should redirect to: `https://dulcet-cobbler-4df9df.netlify.app/dashboard/worker`
+4. Should redirect to: `https://workerconnection-frontend.pages.dev/dashboard/worker`
 5. **Expected**: Dashboard loads successfully
 6. **Verify**: Browser DevTools Network tab shows `/api/auth/user` returns 200 OK
 

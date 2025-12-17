@@ -58,7 +58,7 @@ The backend uses multiple detection methods (in priority order):
 | Device Type | Environment Variable | Example URL |
 |------------|---------------------|-------------|
 | Mobile App | `MOBILE_APP_URL` | `workerconnect://dashboard/worker` |
-| Web Browser | `CLIENT_URL` | `https://dulcet-cobbler-4df9df.netlify.app/dashboard/worker` |
+| Web Browser | `CLIENT_URL` | `https://workerconnection-frontend.pages.dev/dashboard/worker` |
 
 ## Environment Variables Setup
 
@@ -66,7 +66,7 @@ Add to your `.env` file:
 
 ```bash
 # Web browser frontend
-CLIENT_URL=https://dulcet-cobbler-4df9df.netlify.app
+CLIENT_URL=https://workerconnection-frontend.pages.dev
 
 # Mobile app (adjust based on your setup)
 MOBILE_APP_URL=workerconnect://
@@ -89,7 +89,7 @@ res.redirect(`${frontendUrl}/dashboard/worker`);
 const deviceInfo = getDeviceInfo(req);
 const redirectUrl = getRedirectUrl(req, '/dashboard/worker');
 // Mobile app → workerconnect://dashboard/worker
-// Web browser → https://dulcet-cobbler-4df9df.netlify.app/dashboard/worker
+// Web browser → https://workerconnection-frontend.pages.dev/dashboard/worker
 res.redirect(redirectUrl);
 ```
 
@@ -104,7 +104,7 @@ res.redirect(redirectUrl);
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://workerconnectbackend.onrender.com',
+  baseURL: 'https://workerconnection-backend.onrender.com',
   headers: {
     'X-App-Platform': 'mobile',
     'X-Client-Type': 'mobile-app',
@@ -142,20 +142,20 @@ Linking.addEventListener('url', ({ url }) => {
 
 ### Test Web Browser Detection
 ```bash
-curl -L https://workerconnectbackend.onrender.com/saml/login/worker
-# Should redirect to: https://dulcet-cobbler-4df9df.netlify.app/dashboard/worker
+curl -L https://workerconnection-backend.onrender.com/saml/login/worker
+# Should redirect to: https://workerconnection-frontend.pages.dev/dashboard/worker
 ```
 
 ### Test Mobile App Detection
 ```bash
 curl -L -H "X-App-Platform: mobile" \
-  https://workerconnectbackend.onrender.com/saml/login/worker
+  https://workerconnection-backend.onrender.com/saml/login/worker
 # Should redirect to: workerconnect://dashboard/worker
 ```
 
 ### Test with Query Parameter
 ```
-https://workerconnectbackend.onrender.com/saml/login/worker?platform=mobile
+https://workerconnection-backend.onrender.com/saml/login/worker?platform=mobile
 ```
 
 ## Backend Logs

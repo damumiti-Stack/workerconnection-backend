@@ -5,7 +5,7 @@
 Mobile apps were experiencing CORS errors when making requests to `/api/auth/user` and other backend endpoints:
 
 ```
-Access to fetch at 'https://workerconnectbackend.onrender.com/api/auth/user' 
+Access to fetch at 'https://workerconnection-backend.onrender.com/api/auth/user' 
 from origin 'http://localhost' has been blocked by CORS policy: 
 Request header field x-app-platform is not allowed by Access-Control-Allow-Headers
 ```
@@ -28,7 +28,7 @@ const corsOptions = {
     if (!origin) return callback(null, true);
     // Limited origin list
     const allowedOrigins = [
-      'https://dulcet-cobbler-4df9df.netlify.app',
+      'https://workerconnection-frontend.pages.dev',
       FRONTEND_URL,
       'http://localhost:5173',
     ];
@@ -52,7 +52,7 @@ const corsOptions = {
 
     // Comprehensive allowed origins for mobile and web
     const allowedOrigins = [
-      'https://dulcet-cobbler-4df9df.netlify.app',
+      'https://workerconnection-frontend.pages.dev',
       FRONTEND_URL,
       CLIENT_URL,
       'http://localhost:5173',
@@ -111,7 +111,7 @@ This ensures all preflight requests are properly handled before reaching route h
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://workerconnectbackend.onrender.com',
+  baseURL: 'https://workerconnection-backend.onrender.com',
   headers: {
     'Content-Type': 'application/json',
     'X-App-Platform': 'mobile',
@@ -130,7 +130,7 @@ export default api;
 const fetchAuthUser = async () => {
   try {
     const response = await fetch(
-      'https://workerconnectbackend.onrender.com/api/auth/user',
+      'https://workerconnection-backend.onrender.com/api/auth/user',
       {
         method: 'GET',
         headers: {
@@ -169,8 +169,8 @@ const config: CapacitorConfig = {
     androidScheme: 'https', // ✅ Use HTTPS scheme on Android
     cleartext: true,        // ✅ Allow HTTP in dev (disable in production)
     allowNavigation: [
-      'https://workerconnectbackend.onrender.com',
-      'https://dulcet-cobbler-4df9df.netlify.app',
+      'https://workerconnection-backend.onrender.com',
+      'https://workerconnection-frontend.pages.dev',
     ],
   },
   plugins: {
@@ -194,7 +194,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HttpService {
-  private baseUrl = 'https://workerconnectbackend.onrender.com';
+  private baseUrl = 'https://workerconnection-backend.onrender.com';
 
   constructor(private http: HttpClient) {}
 
@@ -224,7 +224,7 @@ async function testCORS() {
     console.log('Testing CORS...');
     
     const response = await fetch(
-      'https://workerconnectbackend.onrender.com/api/auth/user',
+      'https://workerconnection-backend.onrender.com/api/auth/user',
       {
         method: 'GET',
         headers: {
@@ -264,7 +264,7 @@ curl -X OPTIONS \
   -H "Access-Control-Request-Method: GET" \
   -H "Access-Control-Request-Headers: X-App-Platform, Content-Type" \
   -v \
-  https://workerconnectbackend.onrender.com/api/auth/user
+  https://workerconnection-backend.onrender.com/api/auth/user
 
 # Expected response:
 # HTTP/1.1 204 No Content
@@ -279,7 +279,7 @@ curl -X GET \
   -H "X-App-Platform: mobile" \
   -H "Content-Type: application/json" \
   -v \
-  https://workerconnectbackend.onrender.com/api/auth/user
+  https://workerconnection-backend.onrender.com/api/auth/user
 ```
 
 ## Backend Logs
@@ -339,7 +339,7 @@ After the fix, you'll see helpful CORS logging:
    import CookieManager from '@react-native-cookies/cookies';
    
    CookieManager.setFromResponse(
-     'https://workerconnectbackend.onrender.com',
+     'https://workerconnection-backend.onrender.com',
      response.headers['set-cookie']
    );
    ```
@@ -349,7 +349,7 @@ After the fix, you'll see helpful CORS logging:
    import { CapacitorHttp } from '@capacitor/core';
    
    const response = await CapacitorHttp.get({
-     url: 'https://workerconnectbackend.onrender.com/api/auth/user',
+     url: 'https://workerconnection-backend.onrender.com/api/auth/user',
      headers: {
        'X-App-Platform': 'mobile',
      },

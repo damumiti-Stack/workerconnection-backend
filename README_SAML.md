@@ -101,11 +101,11 @@ backend/
 
 ### Environment Variables
 
-**Required (for Render deployment at https://workerconnectbackend.onrender.com):**
+**Required (for Render deployment at https://workerconnection-backend.onrender.com):**
 - `SESSION_SECRET` - Session encryption secret
-- `SAML_ENTITY_ID` - Service Provider Entity ID: `https://workerconnectbackend.onrender.com/saml/metadata`
-- `SAML_ACS_URL` - Assertion Consumer Service URL: `https://workerconnectbackend.onrender.com/saml/acs`
-- `SAML_LOGOUT_URL` - Single Logout Service URL: `https://workerconnectbackend.onrender.com/saml/logout`
+- `SAML_ENTITY_ID` - Service Provider Entity ID: `https://workerconnection-backend.onrender.com/saml/metadata`
+- `SAML_ACS_URL` - Assertion Consumer Service URL: `https://workerconnection-backend.onrender.com/saml/acs`
+- `SAML_LOGOUT_URL` - Single Logout Service URL: `https://workerconnection-backend.onrender.com/saml/logout`
 - `SAML_ENTRY_POINT` - SafeNet Trusted Access SSO URL
 - `SAML_ISSUER` - STA Entity ID
 - `SAML_IDP_CERT` - STA public certificate
@@ -132,7 +132,7 @@ backend/
    - Fill in SAML configuration values
 
 4. **Get SP Metadata**
-   - **For Render**: Visit `https://workerconnectbackend.onrender.com/metadata`
+   - **For Render**: Visit `https://workerconnection-backend.onrender.com/metadata`
    - **For local**: Start server: `npm start`, then visit `http://localhost:3001/metadata`
    - Save XML to `sp-metadata.xml`
 
@@ -143,9 +143,9 @@ backend/
 
 6. **Test**
    - **For Render**: 
-     - Test login: `curl https://workerconnectbackend.onrender.com/saml/login`
-     - Test card scan: `curl -X POST https://workerconnectbackend.onrender.com/card-scan -d '{"cardId":"12345"}'`
-     - Check status: `curl https://workerconnectbackend.onrender.com/saml/status`
+     - Test login: `curl https://workerconnection-backend.onrender.com/saml/login`
+     - Test card scan: `curl -X POST https://workerconnection-backend.onrender.com/card-scan -d '{"cardId":"12345"}'`
+     - Check status: `curl https://workerconnection-backend.onrender.com/saml/status`
    - **For local**:
      - Test login: `curl http://localhost:3001/saml/login`
      - Test card scan: `curl -X POST http://localhost:3001/card-scan -d '{"cardId":"12345"}'`

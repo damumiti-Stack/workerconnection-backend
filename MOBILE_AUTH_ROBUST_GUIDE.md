@@ -52,7 +52,7 @@ Ensure your API client sends the header:
 const token = await SecureStore.getItemAsync('session_token');
 
 const api = axios.create({
-  baseURL: 'https://workerconnectbackend.onrender.com',
+  baseURL: 'https://workerconnection-backend.onrender.com',
   headers: {
     'X-App-Platform': 'mobile',
     'X-Client-Type': 'mobile-app',

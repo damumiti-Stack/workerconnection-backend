@@ -9,7 +9,7 @@ http://localhost:3001/api-docs
 
 ### Production (Render)
 ```
-https://workerconnectbackend.onrender.com/api-docs
+https://workerconnection-backend.onrender.com/api-docs
 ```
 
 ## 📄 OpenAPI JSON Specification
@@ -21,7 +21,7 @@ http://localhost:3001/api-docs.json
 
 ### Production (Render)
 ```
-https://workerconnectbackend.onrender.com/api-docs.json
+https://workerconnection-backend.onrender.com/api-docs.json
 ```
 
 ## 🎯 Quick Links
@@ -149,7 +149,7 @@ Use the OpenAPI spec to generate client SDKs:
 - **OpenAPI Version**: 3.0.0
 - **Base URLs**:
   - Local: `http://localhost:3001`
-  - Production: `https://workerconnectbackend.onrender.com`
+  - Production: `https://workerconnection-backend.onrender.com`
 
 ## 🛠️ Customization
 

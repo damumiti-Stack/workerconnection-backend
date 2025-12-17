@@ -72,8 +72,8 @@ Cookie Settings:
   - sameSite: none (cross-origin)
   
 Flow:
-1. User accesses https://workerconnectbackend.onrender.com/saml/login/worker
-2. SAML redirects to https://dulcet-cobbler-4df9df.netlify.app/dashboard/worker
+1. User accesses https://workerconnection-backend.onrender.com/saml/login/worker
+2. SAML redirects to https://workerconnection-frontend.pages.dev/dashboard/worker
 3. Browser stores secure cookie ✅
 4. Subsequent requests include cookie ✅
 ```
@@ -86,7 +86,7 @@ Cookie Settings:
   - sameSite: lax (relaxed)
   
 Flow:
-1. Mobile app accesses https://workerconnectbackend.onrender.com/saml/login/worker
+1. Mobile app accesses https://workerconnection-backend.onrender.com/saml/login/worker
 2. SAML redirects to http://localhost/dashboard/worker
 3. WebView stores cookie (HTTP allowed) ✅
 4. Subsequent requests include cookie ✅
@@ -212,7 +212,7 @@ Ensure cookies are enabled:
 import { WebView } from 'react-native-webview';
 
 <WebView
-  source={{ uri: 'https://workerconnectbackend.onrender.com/saml/login/worker' }}
+  source={{ uri: 'https://workerconnection-backend.onrender.com/saml/login/worker' }}
   sharedCookiesEnabled={true}           // ✅ Enable cookie sharing
   thirdPartyCookiesEnabled={true}       // ✅ Allow third-party cookies
   cacheEnabled={true}
@@ -229,7 +229,7 @@ Use native HTTP for better cookie handling:
 import { CapacitorHttp } from '@capacitor/core';
 
 const response = await CapacitorHttp.get({
-  url: 'https://workerconnectbackend.onrender.com/api/auth/user',
+  url: 'https://workerconnection-backend.onrender.com/api/auth/user',
   headers: {
     'X-App-Platform': 'mobile',
   },
@@ -263,7 +263,7 @@ console.log('Cookie config:', getSessionCookieConfig());
 // In mobile app, check if cookies are stored
 import CookieManager from '@react-native-cookies/cookies';
 
-CookieManager.get('https://workerconnectbackend.onrender.com')
+CookieManager.get('https://workerconnection-backend.onrender.com')
   .then((cookies) => {
     console.log('Stored cookies:', cookies);
     // Should show: { 'saml.sid': {...} }

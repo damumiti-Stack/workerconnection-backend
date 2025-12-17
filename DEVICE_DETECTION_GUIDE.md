@@ -42,7 +42,7 @@ Add these to your `.env` file:
 
 ```bash
 # Web browser frontend (Netlify)
-CLIENT_URL=https://dulcet-cobbler-4df9df.netlify.app
+CLIENT_URL=https://workerconnection-frontend.pages.dev
 
 # Mobile app deep link or custom scheme
 MOBILE_APP_URL=workerconnect://
@@ -64,7 +64,7 @@ import axios from 'axios';
 import { Platform } from 'react-native';
 
 const api = axios.create({
-  baseURL: 'https://workerconnectbackend.onrender.com',
+  baseURL: 'https://workerconnection-backend.onrender.com',
   headers: {
     'X-App-Platform': 'mobile',
     'X-Client-Type': 'mobile-app',
@@ -81,7 +81,7 @@ export default api;
 // src/api/saml.js
 export const initiateLogin = async (role) => {
   const response = await fetch(
-    `https://workerconnectbackend.onrender.com/saml/login/${role}`,
+    `https://workerconnection-backend.onrender.com/saml/login/${role}`,
     {
       headers: {
         'X-App-Platform': 'mobile',
@@ -231,7 +231,7 @@ function LoginScreen() {
   return (
     <WebView
       source={{ 
-        uri: 'https://workerconnectbackend.onrender.com/saml/login/worker',
+        uri: 'https://workerconnection-backend.onrender.com/saml/login/worker',
         headers: {
           'X-App-Platform': 'mobile',
           'X-Client-Type': 'mobile-app',
@@ -250,21 +250,21 @@ function LoginScreen() {
 
 1. **From Web Browser**:
    ```bash
-   curl -v https://workerconnectbackend.onrender.com/saml/login/worker
-   # Should redirect to: https://dulcet-cobbler-4df9df.netlify.app/dashboard/worker
+   curl -v https://workerconnection-backend.onrender.com/saml/login/worker
+   # Should redirect to: https://workerconnection-frontend.pages.dev/dashboard/worker
    ```
 
 2. **From Mobile App** (with custom header):
    ```bash
    curl -v -H "X-App-Platform: mobile" \
-     https://workerconnectbackend.onrender.com/saml/login/worker
+     https://workerconnection-backend.onrender.com/saml/login/worker
    # Should redirect to: workerconnect://dashboard/worker
    # or http://localhost/dashboard/worker
    ```
 
 3. **Using Query Parameter** (for testing):
    ```
-   https://workerconnectbackend.onrender.com/saml/login/worker?platform=mobile
+   https://workerconnection-backend.onrender.com/saml/login/worker?platform=mobile
    # Forces mobile detection
    ```
 

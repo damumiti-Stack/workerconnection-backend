@@ -4,7 +4,7 @@
 
 ### 1. Metadata XML (Automatic Configuration)
 ```
-https://workerconnectbackend.onrender.com/metadata
+https://workerconnection-backend.onrender.com/metadata
 ```
 **How to use:** Open this link, save the XML file, and upload it to STA.
 
@@ -18,18 +18,18 @@ Copy and paste these values into STA:
 
 **Entity ID:**
 ```
-https://workerconnectbackend.onrender.com/saml/metadata
+https://workerconnection-backend.onrender.com/saml/metadata
 ```
 
 **Assertion Consumer Service (ACS) URL:**
 ```
-https://workerconnectbackend.onrender.com/saml/acs
+https://workerconnection-backend.onrender.com/saml/acs
 ```
 - Binding: HTTP POST
 
 **Single Logout Service (SLO) URL:**
 ```
-https://workerconnectbackend.onrender.com/saml/logout
+https://workerconnection-backend.onrender.com/saml/logout
 ```
 - Binding: HTTP POST or HTTP Redirect
 
@@ -78,9 +78,9 @@ After STA configuration, please provide:
 
 After configuration, test these:
 
-- **Metadata:** https://workerconnectbackend.onrender.com/metadata
-- **Login:** https://workerconnectbackend.onrender.com/saml/login
-- **Status:** https://workerconnectbackend.onrender.com/saml/status
+- **Metadata:** https://workerconnection-backend.onrender.com/metadata
+- **Login:** https://workerconnection-backend.onrender.com/saml/login
+- **Status:** https://workerconnection-backend.onrender.com/saml/status
 
 ---
 

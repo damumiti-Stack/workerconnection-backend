@@ -136,7 +136,7 @@ MIIE... (full private key)
 **For Render deployment:**
 1. Access the metadata endpoint:
    ```
-   https://workerconnectbackend.onrender.com/metadata
+   https://workerconnection-backend.onrender.com/metadata
    ```
 
 2. Save the XML metadata to a file (e.g., `sp-metadata.xml`)
@@ -172,13 +172,13 @@ Configure the following settings in STA:
 
 #### SAML Settings
 
-- **Entity ID**: `https://workerconnectbackend.onrender.com/saml/metadata`
+- **Entity ID**: `https://workerconnection-backend.onrender.com/saml/metadata`
   - Must match `SAML_ENTITY_ID` in your `.env`
 
-- **Assertion Consumer Service (ACS) URL**: `https://workerconnectbackend.onrender.com/saml/acs`
+- **Assertion Consumer Service (ACS) URL**: `https://workerconnection-backend.onrender.com/saml/acs`
   - Must match `SAML_ACS_URL` in your `.env`
 
-- **Single Logout Service (SLO) URL**: `https://workerconnectbackend.onrender.com/saml/logout`
+- **Single Logout Service (SLO) URL**: `https://workerconnection-backend.onrender.com/saml/logout`
   - Must match `SAML_LOGOUT_URL` in your `.env`
 
 - **NameID Format**: `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
@@ -229,9 +229,9 @@ Assign users or groups to the application in STA. Ensure that:
 | Variable | Description | Example (Render) |
 |----------|-------------|------------------|
 | `SESSION_SECRET` | Secret for session encryption | `your-random-secret` |
-| `SAML_ENTITY_ID` | SP Entity ID | `https://workerconnectbackend.onrender.com/saml/metadata` |
-| `SAML_ACS_URL` | ACS callback URL | `https://workerconnectbackend.onrender.com/saml/acs` |
-| `SAML_LOGOUT_URL` | Logout callback URL | `https://workerconnectbackend.onrender.com/saml/logout` |
+| `SAML_ENTITY_ID` | SP Entity ID | `https://workerconnection-backend.onrender.com/saml/metadata` |
+| `SAML_ACS_URL` | ACS callback URL | `https://workerconnection-backend.onrender.com/saml/acs` |
+| `SAML_LOGOUT_URL` | Logout callback URL | `https://workerconnection-backend.onrender.com/saml/logout` |
 | `SAML_ENTRY_POINT` | STA SSO URL | `https://tenant.safenetidp.com/saml/sso` |
 | `SAML_ISSUER` | STA Entity ID | `https://tenant.safenetidp.com` |
 | `SAML_IDP_CERT` | STA public certificate | `-----BEGIN CERTIFICATE-----...` |
@@ -245,7 +245,7 @@ Check SAML configuration status:
 
 **For Render deployment:**
 ```bash
-curl https://workerconnectbackend.onrender.com/saml/config
+curl https://workerconnection-backend.onrender.com/saml/config
 ```
 
 **For local development:**
@@ -264,7 +264,7 @@ This endpoint is only available in development mode and shows:
 
 **For Render deployment:**
 ```bash
-curl https://workerconnectbackend.onrender.com/metadata
+curl https://workerconnection-backend.onrender.com/metadata
 ```
 
 **For local development:**
@@ -277,7 +277,7 @@ Should return XML metadata.
 ### 2. Test SAML Login Flow
 
 **For Render deployment:**
-1. Open browser: `https://workerconnectbackend.onrender.com/saml/login`
+1. Open browser: `https://workerconnection-backend.onrender.com/saml/login`
 2. You should be redirected to STA login page
 3. After login, you'll be redirected back to `/saml/acs`
 4. Then redirected to `/dashboard` (or JSON response if API call)
@@ -293,7 +293,7 @@ Should return XML metadata.
 **For Render deployment:**
 ```bash
 # Simulate card scan
-curl -X POST https://workerconnectbackend.onrender.com/card-scan \
+curl -X POST https://workerconnection-backend.onrender.com/card-scan \
   -H "Content-Type: application/json" \
   -d '{"cardId": "12345"}'
 ```
@@ -315,7 +315,7 @@ This will:
 
 **For Render deployment:**
 ```bash
-curl https://workerconnectbackend.onrender.com/saml/status
+curl https://workerconnection-backend.onrender.com/saml/status
 ```
 
 **For local development:**
@@ -329,7 +329,7 @@ Returns current authentication status and user info.
 
 **For Render deployment:**
 ```bash
-curl -X POST https://workerconnectbackend.onrender.com/saml/logout
+curl -X POST https://workerconnection-backend.onrender.com/saml/logout
 ```
 
 **For local development:**

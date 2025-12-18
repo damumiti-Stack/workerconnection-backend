@@ -104,7 +104,7 @@ res.redirect(redirectUrl);
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://workerconnectbackend.onrender.com',
+  baseURL: 'https://workerconnection-backend.onrender.com',
   headers: {
     'X-App-Platform': 'mobile',
     'X-Client-Type': 'mobile-app',
@@ -142,20 +142,20 @@ Linking.addEventListener('url', ({ url }) => {
 
 ### Test Web Browser Detection
 ```bash
-curl -L https://workerconnectbackend.onrender.com/saml/login/worker
+curl -L https://workerconnection-backend.onrender.com/saml/login/worker
 # Should redirect to: https://dulcet-cobbler-4df9df.netlify.app/dashboard/worker
 ```
 
 ### Test Mobile App Detection
 ```bash
 curl -L -H "X-App-Platform: mobile" \
-  https://workerconnectbackend.onrender.com/saml/login/worker
+  https://workerconnection-backend.onrender.com/saml/login/worker
 # Should redirect to: workerconnect://dashboard/worker
 ```
 
 ### Test with Query Parameter
 ```
-https://workerconnectbackend.onrender.com/saml/login/worker?platform=mobile
+https://workerconnection-backend.onrender.com/saml/login/worker?platform=mobile
 ```
 
 ## Backend Logs

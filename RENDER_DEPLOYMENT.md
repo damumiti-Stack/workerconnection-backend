@@ -4,18 +4,18 @@ This guide covers the specific configuration needed for deploying the SAML authe
 
 ## Render URL
 
-**Production URL:** `https://workerconnectbackend.onrender.com`
+**Production URL:** `https://workerconnection-backend.onrender.com`
 
 ## SAML Endpoints
 
 All SAML endpoints are available at:
 
-- **Metadata**: `https://workerconnectbackend.onrender.com/metadata`
-- **Login**: `https://workerconnectbackend.onrender.com/saml/login`
-- **ACS Callback**: `https://workerconnectbackend.onrender.com/saml/acs`
-- **Logout**: `https://workerconnectbackend.onrender.com/saml/logout`
-- **Card Scan**: `https://workerconnectbackend.onrender.com/card-scan`
-- **Status**: `https://workerconnectbackend.onrender.com/saml/status`
+- **Metadata**: `https://workerconnection-backend.onrender.com/metadata`
+- **Login**: `https://workerconnection-backend.onrender.com/saml/login`
+- **ACS Callback**: `https://workerconnection-backend.onrender.com/saml/acs`
+- **Logout**: `https://workerconnection-backend.onrender.com/saml/logout`
+- **Card Scan**: `https://workerconnection-backend.onrender.com/card-scan`
+- **Status**: `https://workerconnection-backend.onrender.com/saml/status`
 
 ## Environment Variables for Render
 
@@ -26,9 +26,9 @@ Configure these in your Render dashboard under **Environment**:
 SESSION_SECRET=your-strong-random-secret-here
 
 # Service Provider Configuration
-SAML_ENTITY_ID=https://workerconnectbackend.onrender.com/saml/metadata
-SAML_ACS_URL=https://workerconnectbackend.onrender.com/saml/acs
-SAML_LOGOUT_URL=https://workerconnectbackend.onrender.com/saml/logout
+SAML_ENTITY_ID=https://workerconnection-backend.onrender.com/saml/metadata
+SAML_ACS_URL=https://workerconnection-backend.onrender.com/saml/acs
+SAML_LOGOUT_URL=https://workerconnection-backend.onrender.com/saml/logout
 
 # SafeNet Trusted Access Configuration
 SAML_ENTRY_POINT=https://your-tenant.safenetidp.com/saml/sso
@@ -57,8 +57,8 @@ SAML_DIGEST_ALGORITHM=sha256
 ### 1. HTTPS is Required
 
 Render provides HTTPS automatically. All SAML URLs must use `https://`:
-- ✅ `https://workerconnectbackend.onrender.com/saml/acs`
-- ❌ `http://workerconnectbackend.onrender.com/saml/acs`
+- ✅ `https://workerconnection-backend.onrender.com/saml/acs`
+- ❌ `http://workerconnection-backend.onrender.com/saml/acs`
 
 ### 2. Session Configuration
 
@@ -105,7 +105,7 @@ Update `FRONTEND_URL` in Render environment variables to match your frontend URL
 ### 5. Getting SP Metadata
 
 1. Deploy your application to Render
-2. Visit: `https://workerconnectbackend.onrender.com/metadata`
+2. Visit: `https://workerconnection-backend.onrender.com/metadata`
 3. Save the XML metadata
 4. Upload to SafeNet Trusted Access
 
@@ -113,32 +113,32 @@ Update `FRONTEND_URL` in Render environment variables to match your frontend URL
 
 When configuring STA, use these URLs:
 
-- **Entity ID**: `https://workerconnectbackend.onrender.com/saml/metadata`
-- **ACS URL**: `https://workerconnectbackend.onrender.com/saml/acs`
-- **Logout URL**: `https://workerconnectbackend.onrender.com/saml/logout`
+- **Entity ID**: `https://workerconnection-backend.onrender.com/saml/metadata`
+- **ACS URL**: `https://workerconnection-backend.onrender.com/saml/acs`
+- **Logout URL**: `https://workerconnection-backend.onrender.com/saml/logout`
 
 ## Testing on Render
 
 ### Test Metadata
 ```bash
-curl https://workerconnectbackend.onrender.com/metadata
+curl https://workerconnection-backend.onrender.com/metadata
 ```
 
 ### Test Login
 ```bash
-curl -L https://workerconnectbackend.onrender.com/saml/login
+curl -L https://workerconnection-backend.onrender.com/saml/login
 ```
 
 ### Test Card Scan
 ```bash
-curl -X POST https://workerconnectbackend.onrender.com/card-scan \
+curl -X POST https://workerconnection-backend.onrender.com/card-scan \
   -H "Content-Type: application/json" \
   -d '{"cardId": "12345"}'
 ```
 
 ### Test Status
 ```bash
-curl https://workerconnectbackend.onrender.com/saml/status
+curl https://workerconnection-backend.onrender.com/saml/status
 ```
 
 ## Troubleshooting
@@ -165,9 +165,9 @@ curl https://workerconnectbackend.onrender.com/saml/status
 ## Render Environment Variables Checklist
 
 - [ ] `SESSION_SECRET` - Strong random secret
-- [ ] `SAML_ENTITY_ID` - `https://workerconnectbackend.onrender.com/saml/metadata`
-- [ ] `SAML_ACS_URL` - `https://workerconnectbackend.onrender.com/saml/acs`
-- [ ] `SAML_LOGOUT_URL` - `https://workerconnectbackend.onrender.com/saml/logout`
+- [ ] `SAML_ENTITY_ID` - `https://workerconnection-backend.onrender.com/saml/metadata`
+- [ ] `SAML_ACS_URL` - `https://workerconnection-backend.onrender.com/saml/acs`
+- [ ] `SAML_LOGOUT_URL` - `https://workerconnection-backend.onrender.com/saml/logout`
 - [ ] `SAML_ENTRY_POINT` - Your STA SSO URL
 - [ ] `SAML_ISSUER` - Your STA Entity ID
 - [ ] `SAML_IDP_CERT` - STA certificate

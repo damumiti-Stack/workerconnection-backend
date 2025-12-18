@@ -9,7 +9,7 @@ http://localhost:3001/api-docs
 
 ### Production (Render)
 ```
-https://workerconnectbackend.onrender.com/api-docs
+https://workerconnection-backend.onrender.com/api-docs
 ```
 
 ## 📄 OpenAPI JSON
@@ -21,7 +21,7 @@ http://localhost:3001/api-docs.json
 
 ### Production (Render)
 ```
-https://workerconnectbackend.onrender.com/api-docs.json
+https://workerconnection-backend.onrender.com/api-docs.json
 ```
 
 ## ✨ Features
